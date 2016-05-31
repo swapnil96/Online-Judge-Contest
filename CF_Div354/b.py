@@ -5,11 +5,14 @@ z=0
 a[0][0]*=1024
 for r in range(n):
   for c in range(r+1):
+    print a, '\t', 'adsf'
     d=a[r][c]-1024
     if d>=0:
+      print d, z
       z+=1
       a[r+1][c]+=d/2
       a[r+1][c+1]+=d/2
+    print a,'\n'  
 print z
 '''
 import math
