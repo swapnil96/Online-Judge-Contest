@@ -324,7 +324,11 @@ def maximum(a,size):
             l = j
             max_so_far = max_ending_here
     
-    return l, k       
+    return l, k
+    u = min(a[l, k])
+    if u < 0:
+    	fir = max_so_far - u
+
     #return max_so_far
 '''
 def maxSubArraySum(a,size):
