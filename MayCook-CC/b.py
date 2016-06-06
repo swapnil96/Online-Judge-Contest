@@ -1,3 +1,4 @@
+'''Problem name - Tandem'''
 
 a = raw_input()
 length = len(a)

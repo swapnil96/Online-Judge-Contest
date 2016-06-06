@@ -1,3 +1,27 @@
+'''Problem name - MMSUM'''
+'''Correct Solution'''
+def R(): return map(int, raw_input().split())
+ 
+T = R()[0]
+for i in range(T):
+    N = R()[0]
+    A = R()
+ 
+    all_negative = True
+    max_element = None
+    max_so_far = 0
+    max_ending_left = 0     # maximum subsequence ending at prev position
+    max_skipped_one = 0     # maximum subsequence ending at curr position where one element was skipped
+    for x in A:
+        max_element = max(max_element, x)
+        all_negative = all_negative and x < 0
+ 	
+        max_ending_left, max_skipped_one  = max(0, max_ending_left + x), max(0, max_ending_left, max_skipped_one + x)
+        #print x, max_ending_left, max_skipped_one
+        max_so_far = max(max_so_far, max_skipped_one, max_ending_left)
+ 
+    print max_element if all_negative else max_so_far
+ 
 class result:
 
 	def __init__(self, sum1, except1, left, right):

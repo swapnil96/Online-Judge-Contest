@@ -1,3 +1,5 @@
+'''Problem name - EZNO'''
+'''It is related to polydivisible number and also Horner's rule is used'''
 
 modulo = 10**9 + 7
 

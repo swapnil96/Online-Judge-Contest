@@ -1,6 +1,33 @@
+'''Problem name - KGOOD'''
+'''Correct Solution'''
+'''
+test_case = int(raw_input())
+for t in xrange(test_case):
+    word, k = map(str, raw_input().split())
+    k = int(k)
+    number = []
+   	s = ''
+    for w in word:
+    	if not w in s:
+    		number.append(word.count(w))
+    		s += w
+    cost = []
+   	for m in number:
+    	temp = 0
+    	for i in number:
+   			if m + k < i:
+    			temp += i - m - k
+    		if m > i:
+   				temp += i
+   		cost.append(temp)
+   	# print number
+    # print cost
+   	print min(cost) 
+'''
+
 import collections
 from collections import OrderedDict
-
+'''
 def find(counter):
 
 	temp = {}
@@ -53,10 +80,10 @@ def hel(a):
 		else:
 			return counter.values()[0] - c
 
-	'''
+	
 	for key in counter.keys():
 		last[key] = []			 
-	'''
+	
 	print temp
 	while True:
 		a = 0
@@ -67,7 +94,7 @@ def hel(a):
 
 			else:
 				a = 1
-				'''
+				
 				print lol
 				if counter[lol[0]] > counter[lol[1]]:
 					temp[lol[0]] -= i - c
@@ -79,15 +106,15 @@ def hel(a):
 					for l in temp.keys():
 						if lol[1] in l:
 							temp[lol[1]] -= i - c
-				'''
+				
 				#print key
-				'''
+				
 				if counter[key[0]] > counter[key[1]]:
 					last[key[0]].append(counter[key[0]] - counter[key[1]] - c)
 
 				else:
 					last[key[1]].append(counter[key[1]] - counter[key[0]] - c)
-				'''
+				
 				if counter[key[0]] > counter[key[1]]:
 					counter[key[0]] -= value - c
 					got += value - c
@@ -112,12 +139,33 @@ def hel(a):
 	#sol.append(len(last))
 	print counter
 	return got
+'''
+
+def last(a):
+	b = list(a[0])
+	c = int(a[1])
+	counter = OrderedDict(collections.Counter(b))
+	got = 10**9
+	for i in counter.values():
+
+		temp = 0
+		for j in counter.values():
+			if i + c < j:
+				temp += j - i - c
+
+			if i > j:
+				temp += j
+
+		if temp < got:
+			got = temp		
+	
+	return got					 
 
 sol = []
 tt = int(raw_input())
 for i in xrange(tt):
 	a = raw_input().split()
-	sol.append(tot(a))
+	sol.append(last(a))
 
 for i in xrange(tt):
 	print sol[i]
