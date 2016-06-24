@@ -1,7 +1,9 @@
 
 import time
+from math import floor
 
 MOD = 10**9 + 9
+'''
 prev_even = {}
 prev_odd = {}
 
@@ -42,12 +44,22 @@ def find(no):
 			prev_odd[i] = ans
 	
 	return ans % MOD		
+'''
+
+def find(no):
+
+	if no & 1 == 0:
+		i = no / 2
+		return (((8*(i)*(i+1)*(2*i + 1))/3) - (6*i*(i+1)) + 6*i)
+
+	i= int(floor(no/2))
+	return (2*i*(8*i*i+15*i+13))/3+1
 
 tt = int(raw_input())
 for i in xrange(tt):
 	a = int(raw_input())	
-	now = time.time()
-	print find(a)
-	print time.time() - now
+	#now = time.time()
+	print find(a) % MOD
+	#print time.time() - now
 
 #print prev_even	
