@@ -2,7 +2,7 @@
 import sys
 
 k = int(raw_input())
-a = map(int, (' '.join(n for n in raw_input())).split())
+a = map(int, (' '.join(n for n in raw_input())).split())	
 b = map(int, (' '.join(l for l in raw_input())).split())
 length = len(a)
 temp = []
@@ -37,6 +37,7 @@ while sum(temp) != 0:
 				break
 
 			if temp[j] == 0:
+				j -= 1
 				got = 1
 				break
 
@@ -50,6 +51,6 @@ while sum(temp) != 0:
 		new = [l - cut for l in temp[i:j + 1]]
 		temp = temp[:i] + new + temp[j+1:]			
 		ans += 1
-		print temp
+		print temp, ans
 
 print ans	
