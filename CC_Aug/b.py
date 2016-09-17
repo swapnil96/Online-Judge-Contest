@@ -1,6 +1,6 @@
 
 #import time
-
+'''
 tt = int(raw_input())
 for i in xrange(tt):
 	n = int(raw_input())
@@ -35,38 +35,54 @@ for i in xrange(tt):
 	print tot
 
 '''
-import numpy
+White = 0
+Gray = 1
+Black = 2
+
 tt = int(raw_input())
 for i in xrange(tt):
 	n = int(raw_input())
 	a = map(int, raw_input().split())
-	arr = [[0 for _ in xrange(n)] for _ in xrange(n)]
+	pred = [-1]*n
+	vis = [0]*n
+	tot = 0
 	for j in xrange(n):
-		to = j + a[j] + 1
-		if to > n -1:
-			to = to % n
+		if vis[j] == White:
+			vis[j] = Gray
+			nxt = a[j] + j + 1
+			if nxt > n - 1:
+				nxt -= n
 
-		arr[j][to] = 1
-
-	mat = numpy.matrix(arr)
-	ans = 0
-	fin = mat
-	#print fin
-	for k in xrange(n-1):
-		fin = fin*mat
-		#print fin
-		tot = 0
-		for j in xrange(n):
-			if fin[j,j] == 1:
+			if nxt == j:
 				tot += 1
+				vis[j] = Black
+				continue
 
-		ans = max(tot, ans)		
-		if ans == n:
-			break
+			pred[nxt] = j	
+			while True:
+				if vis[nxt] == Black:
+					break
+
+				elif vis[nxt] == Gray:
+					prev = pred[nxt] 
+					vis[prev] = Black
+					while (pred[nxt] != -1):
+						prev = pred[prev]
+						vis[prev] = Black
+						tot += 1
+						if prev == nxt:
+							tot += 1
+							break
+				
+				else:
+					vis[nxt] = Gray
+					last = nxt
+					nxt = a[nxt] + nxt + 1
+					if nxt > n - 1:
+						nxt -= n
+
+					pred[nxt] = last
+					#print pred, vis	
 	
-	print ans	
 
-'''
-
-
-
+	print tot 				

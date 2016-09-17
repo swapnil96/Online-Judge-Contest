@@ -1,7 +1,7 @@
 from numpy import *
-import temp
+#import temp
 import time
-'''
+
 tt = map(int, raw_input().split())
 temp1 = []
 for i in xrange(tt[0]):
@@ -11,7 +11,7 @@ que = array(temp1)
 '''
 que = array(temp.aol)
 tt = [1000, 1000]
-
+'''
 sums = que.cumsum(axis = 0).cumsum(axis = 1)
 print sums
 def matrixRegionSum2(A, D):
