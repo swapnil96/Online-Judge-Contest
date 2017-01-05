@@ -13,14 +13,14 @@ for i in xrange(q):
 	if k < n:
 		h = array**(k)
 
-	else:	
+	else:
 		h = array**(k % (n-2) + 1)
-		
+
 	tot = 0
 	fin = []
 	#print h
 	for j in xrange(n):
-		if (h[x-1,j] > 0) and (h[x-1,j] & 1 == 1): 
+		if (h[x-1,j] > 0) and (h[x-1,j] & 1 == 1):
 			tot += 1
 			fin.append(j+1)
 
@@ -28,6 +28,6 @@ for i in xrange(q):
 		print 0
 		print -1
 
-	else:			
+	else:
 		print tot
-		print ' '.join(map(str, fin))		
+		print ' '.join(map(str, fin))
