@@ -1,0 +1,10 @@
+{
+    "python.linting.pylintEnabled": false,
+    "files.associations": {
+        "*.c": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp"
+    }
+}

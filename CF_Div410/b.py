@@ -17,7 +17,7 @@ for i in xrange(length):
     now = a[0][i:] + a[0][:i]
     temp.append(now)
 
-# print temp
+print temp
 idx = []
 for i in xrange(tt):
 
@@ -32,7 +32,7 @@ for i in xrange(tt):
         ans = -1
         break
 
-# print idx    
+print idx    
 if flag == 0:
     ans = 10**9
     for i in xrange(tt):
