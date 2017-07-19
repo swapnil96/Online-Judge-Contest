@@ -26,9 +26,9 @@ for i in xrange(tt):
     else:
         up = (n-1)*n
         down = 2*(2*n - 3)
-        g = gcd(up, down)
-        up /= g
-        down /= g
+        # g = gcd(up, down)
+        # up /= g
+        # down /= g
         ans = [(up*modinv(down, a))%a, (up*modinv(down, b))%b]
 
     print ' '.join((map(str, ans)))
