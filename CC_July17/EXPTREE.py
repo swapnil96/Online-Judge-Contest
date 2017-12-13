@@ -17,6 +17,9 @@ def modinv(a, m):
     else:
         return x % m
 
+def inv(a, m):
+    return pow(a, m-2, m)
+
 tt = int(raw_input())
 for i in xrange(tt):
     n = int(raw_input())
@@ -29,7 +32,8 @@ for i in xrange(tt):
         # g = gcd(up, down)
         # up /= g
         # down /= g
-        ans = [(up*modinv(down, a))%a, (up*modinv(down, b))%b]
+        # ans = [(up*modinv(down, a))%a, (up*modinv(down, b))%b]
+        ans = [(up*inv(down, a))%a, (up*inv(down, b))%b]
 
     print ' '.join((map(str, ans)))
     
